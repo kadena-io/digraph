@@ -1,4 +1,5 @@
 {-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE ExplicitNamespaces #-}
@@ -44,6 +45,9 @@ import Data.Foldable
 import qualified Data.HashMap.Strict as HM
 import qualified Data.HashSet as HS
 import Data.Massiv.Array as M
+#if !MIN_VERSION_base(4,11,0)
+import Data.Monoid
+#endif
 
 import GHC.Generics
 
