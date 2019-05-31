@@ -1,0 +1,11 @@
+dist*
+Setup.hs
+ctags
+tags
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
+cabal.project.local
+.ghc.environment.*
+.ghci
