@@ -16,7 +16,7 @@ module Main
 
 import Data.Bitraversable
 #if !MIN_VERSION_base(4,11,0)
-import Data.Monoid
+import Data.Semigroup
 #endif
 
 import System.Exit
@@ -25,8 +25,8 @@ import Test.QuickCheck
 
 -- internal modules
 
-import qualified Data.DiGraph (properties)
-import qualified Data.DiGraph.Random (properties)
+import qualified Data.DiGraph.Test (properties)
+import qualified Data.DiGraph.Random.Test (properties)
 
 -- -------------------------------------------------------------------------- --
 -- Support for QuickCheck < 2.12
@@ -49,8 +49,8 @@ main = do
 
 properties :: [(String, Property)]
 properties = mconcat
-    [ prefix "Data.DiGraph" <$> Data.DiGraph.properties
-    , prefix "Data.DiGraph.Random" <$> Data.DiGraph.Random.properties
+    [ prefix "Data.DiGraph.Test" <$> Data.DiGraph.Test.properties
+    , prefix "Data.DiGraph.Random.Test" <$> Data.DiGraph.Random.Test.properties
     ]
   where
     prefix a (b, c) = (a <> "/" <> b, c)

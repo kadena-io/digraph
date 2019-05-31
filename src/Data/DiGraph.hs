@@ -83,8 +83,6 @@ module Data.DiGraph
 , twentyChainGraph
 , hoffmanSingleton
 
--- * Test Properties
-, properties
 ) where
 
 import Control.Arrow
@@ -106,8 +104,6 @@ import GHC.Generics
 import Numeric.Natural
 
 import Prelude hiding (cycle)
-
-import Test.QuickCheck
 
 -- internal modules
 
@@ -607,79 +603,3 @@ hoffmanSingleton = pentagons `union` pentagrams `union` connections
         , let b = q_off i ((h * i + j) `mod` 5)
         ]
 
--- -------------------------------------------------------------------------- --
--- Test Properties
-
-prefixProperties :: String -> [(String, Property)] -> [(String, Property)]
-prefixProperties p = fmap $ first (p <>)
-
-properties_undirected :: Eq a => Hashable a => DiGraph a -> [(String, Property)]
-properties_undirected g =
-    [ ("isDiGraph", property $ isDiGraph g)
-    , ("isIrreflexive", property $ isIrreflexive g)
-    , ("isSymmetric", property $ isSymmetric g)
-    ]
-
-properties_emptyGraph :: Natural -> [(String, Property)]
-properties_emptyGraph n = prefixProperties ("emptyGraph of order " <> show n <> ": ")
-    $ ("order == " <> show n, order g === n)
-    : ("size == 0", size g === 0)
-    : properties_undirected g
-  where
-    g = emptyGraph n
-
-properties_singletonGraph :: [(String, Property)]
-properties_singletonGraph = prefixProperties "singletonGraph: "
-    $ ("order == 1", order g === 1)
-    : ("size == 0", symSize g === 0)
-    : ("outDegree == 0", maxOutDegree g === 0)
-    : ("isRegular", property $ isRegular g)
-    : ("diameter == 0", diameter g === Just 0)
-    : properties_undirected g
-  where
-    g = singleton
-
-properties_petersonGraph :: [(String, Property)]
-properties_petersonGraph = prefixProperties "petersonGraph: "
-    $ ("order == 10", order g === 10)
-    : ("size == 15", symSize g === 15)
-    : ("outDegree == 3", maxOutDegree g === 3)
-    : ("isRegular", property $ isRegular g)
-    : ("diameter == 2", diameter g === Just 2)
-    : properties_undirected g
-  where
-    g = petersonGraph
-
-properties_twentyChainGraph :: [(String, Property)]
-properties_twentyChainGraph = prefixProperties "twentyChainGraph: "
-    $ ("order == 20", order g === 20)
-    : ("size == 30", symSize g === 30)
-    : ("outDegree == 3", maxOutDegree g === 3)
-    : ("isRegular", property $ isRegular g)
-    : ("diameter == 2", diameter g === Just 4)
-    : properties_undirected g
-  where
-    g = twentyChainGraph
-
-properties_hoffmanSingletonGraph :: [(String, Property)]
-properties_hoffmanSingletonGraph = prefixProperties "HoffmanSingletonGraph: "
-    $ ("order == 50", order g === 50)
-    : ("size == 175", symSize g === 175)
-    : ("outDegree == 7", maxOutDegree g === 7)
-    : ("isRegular", property $ isRegular g)
-    : ("diameter == 2", diameter g === Just 2)
-    : properties_undirected g
-  where
-    g = hoffmanSingleton
-
--- | Test Properties.
---
-properties :: [(String, Property)]
-properties = (concat :: [[(String, Property)]] -> [(String, Property)])
-    [ properties_emptyGraph 0
-    , properties_emptyGraph 2
-    , properties_singletonGraph
-    , properties_petersonGraph
-    , properties_twentyChainGraph
-    , properties_hoffmanSingletonGraph
-    ]
