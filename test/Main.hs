@@ -15,6 +15,9 @@ module Main
 ) where
 
 import Data.Bitraversable
+#if !MIN_VERSION_base(4,11,0)
+import Data.Monoid
+#endif
 
 import System.Exit
 

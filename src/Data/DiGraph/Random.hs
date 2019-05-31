@@ -1,4 +1,5 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleContexts #-}
@@ -50,6 +51,9 @@ import qualified Data.Graph.Inductive.Query.SP as G
 import Data.Hashable
 import Data.Massiv.Array (Array(..), U, Ix2(..), makeArray, Comp(..))
 import qualified Data.Massiv.Array as M
+#if !MIN_VERSION_base(4,11,0)
+import Data.Monoid
+#endif
 import Data.Proxy
 import qualified Data.Set as S
 
