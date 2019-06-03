@@ -1,0 +1,5 @@
+resolver: lts-13.24
+
+extra-deps:
+  - massiv-0.3.3.0
+  - scheduler-1.3.0
