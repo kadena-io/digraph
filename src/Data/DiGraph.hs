@@ -384,14 +384,15 @@ isAdjacent = curry isEdge
 -- nodes of the graph.
 --
 data ShortestPathCache a = ShortestPathCache
-    {-# UNPACK #-} !FW.ShortestPathMatrix
+    { _spcMatrix   :: {-# UNPACK #-} !FW.ShortestPathMatrix
         -- ^ The shortest path matrix of a graph.
-    !(HM.HashMap a Int)
+    , _spcIndices  :: !(HM.HashMap a Int)
         -- ^ mapping from vertices of the graph to indices in the shortest path
         -- matrix.
-    !(HM.HashMap Int a)
+    , _spcVertices :: !(HM.HashMap Int a)
         -- ^ mapping from indices in the shortest path matrix to vertices in the
         -- graph.
+    }
     deriving (Show, Eq, Ord, Generic)
     deriving anyclass (NFData)
 
@@ -602,4 +603,3 @@ hoffmanSingleton = pentagons `union` pentagrams `union` connections
         , i <- [0 .. 4]
         , let b = q_off i ((h * i + j) `mod` 5)
         ]
-
