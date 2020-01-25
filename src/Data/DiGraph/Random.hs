@@ -4,7 +4,7 @@
 
 -- |
 -- Module: Data.DiGraph.Random
--- Copyright: Copyright © 2019 Kadena LLC.
+-- Copyright: Copyright © 2019 - 2020 Kadena LLC.
 -- License: MIT
 -- Maintainer: Lars Kuhtz <lars@kadena.io>
 -- Stability: experimental
@@ -130,4 +130,3 @@ gnp gen n p = S.fold_ (flip insertEdge) (emptyGraph n) id
     choice = do
         v <- gen (0, maxBound)
         return $ int v <= p * int (maxBound :: Int)
-

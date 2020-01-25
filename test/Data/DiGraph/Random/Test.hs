@@ -9,7 +9,7 @@
 
 -- |
 -- Module: Data.DiGraph.Random.Test
--- Copyright: Copyright © 2019 Kadena LLC.
+-- Copyright: Copyright © 2019 - 2020 Kadena LLC.
 -- License: MIT
 -- Maintainer: Lars Kuhtz <lars@kadena.io>
 -- Stability: experimental
@@ -31,7 +31,7 @@ import qualified Data.Graph.Inductive.Internal.RootPath as G
 import qualified Data.Graph.Inductive.PatriciaTree as G
 import qualified Data.Graph.Inductive.Query.SP as G
 import Data.Hashable
-import Data.Massiv.Array (Array(..), U, Ix2(..), makeArray, Comp(..))
+import Data.Massiv.Array (Array(..), Comp(..), Ix2(..), U, makeArray)
 import qualified Data.Massiv.Array as M
 import Data.Proxy
 #if !MIN_VERSION_base(4,11,0)
@@ -297,4 +297,3 @@ properties = mconcat
     , properties_gnp
     , properties_rrg
     ]
-

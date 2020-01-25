@@ -5,7 +5,7 @@
 
 -- |
 -- Module: Main
--- Copyright: Copyright © 2019 Kadena LLC.
+-- Copyright: Copyright © 2019 - 2020 Kadena LLC.
 -- License: MIT
 -- Maintainer: Lars Kuhtz <lars@kadena.io>
 -- Stability: experimental
@@ -25,8 +25,8 @@ import Test.QuickCheck
 
 -- internal modules
 
-import qualified Data.DiGraph.Test (properties)
 import qualified Data.DiGraph.Random.Test (properties)
+import qualified Data.DiGraph.Test (properties)
 
 -- -------------------------------------------------------------------------- --
 -- Support for QuickCheck < 2.12

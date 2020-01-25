@@ -5,7 +5,7 @@
 
 -- |
 -- Module: Data.DiGraph.Test
--- Copyright: Copyright © 2019 Kadena LLC.
+-- Copyright: Copyright © 2019 - 2020 Kadena LLC.
 -- License: MIT
 -- Maintainer: Lars Kuhtz <lars@kadena.io>
 -- Stability: experimental
@@ -106,4 +106,3 @@ properties = (concat :: [[(String, Property)]] -> [(String, Property)])
     , properties_twentyChainGraph
     , properties_hoffmanSingletonGraph
     ]
-

@@ -9,10 +9,11 @@ license: BSD-3-Clause
 license-file: LICENSE
 author: Lars Kuhtz
 maintainer: lars@kadena.io
-copyright: Copyright (c) 2019, Kadena LLC
+copyright: Copyright (c) 2019 - 2020, Kadena LLC
 category: Data, Mathematics
 tested-with:
-      GHC==8.6.5
+      GHC==8.8.2
+    , GHC==8.6.5
     , GHC==8.4.4
     , GHC==8.2.2
 extra-source-files:

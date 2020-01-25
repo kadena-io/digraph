@@ -7,7 +7,7 @@
 
 -- |
 -- Module: DiGraph
--- Copyright: Copyright © 2018-2019 Kadena LLC.
+-- Copyright: Copyright © 2018-2020 Kadena LLC.
 -- License: MIT
 -- Maintainer: Lars Kuhtz <lars@kadena.io>
 -- Stability: experimental
@@ -384,9 +384,9 @@ isAdjacent = curry isEdge
 -- nodes of the graph.
 --
 data ShortestPathCache a = ShortestPathCache
-    { _spcMatrix   :: {-# UNPACK #-} !FW.ShortestPathMatrix
+    { _spcMatrix :: {-# UNPACK #-} !FW.ShortestPathMatrix
         -- ^ The shortest path matrix of a graph.
-    , _spcIndices  :: !(HM.HashMap a Int)
+    , _spcIndices :: !(HM.HashMap a Int)
         -- ^ mapping from vertices of the graph to indices in the shortest path
         -- matrix.
     , _spcVertices :: !(HM.HashMap Int a)
