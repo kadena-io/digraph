@@ -1,5 +1,12 @@
 # Revision history for digraph
 
+## 0.2 -- 2020-05-19
+
+* Fix the `twentyChainGraph` to have diameter 3 and match the respective graph
+  from the chainweb paper.
+
+* Allow build with base < 4.15
+
 ## 0.1.0.2 -- 2019-06-03
 
 * Haddocks fixed for older Haddock versions.

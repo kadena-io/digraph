@@ -1,6 +1,6 @@
 cabal-version: 2.2
 name: digraph
-version: 0.1.0.2
+version: 0.2
 synopsis: Directed Graphs
 description: Directed graphs implementation that is based on unordered-containers
 homepage: https://github.com/kadena-io/digraph
@@ -12,10 +12,9 @@ maintainer: lars@kadena.io
 copyright: Copyright (c) 2019 - 2020, Kadena LLC
 category: Data, Mathematics
 tested-with:
-      GHC==8.8.2
+      GHC==8.10.1
+    , GHC==8.8.3
     , GHC==8.6.5
-    , GHC==8.4.4
-    , GHC==8.2.2
 extra-source-files:
     README.md
     CHANGELOG.md
@@ -34,7 +33,7 @@ library
         , Data.DiGraph.FloydWarshall
         , Data.DiGraph.Random
     build-depends:
-          base >=4.10 && <4.14
+          base >=4.10 && <4.15
         , containers >=0.5
         , deepseq >=1.4
         , hashable >=1.2
@@ -62,7 +61,7 @@ test-suite digraph-tests
 
         -- external
         , QuickCheck >=2.11
-        , base >=4.10 && <4.14
+        , base >=4.10 && <4.15
         , fgl >=5.7
         , hashable >=1.2
         , massiv >=0.3
