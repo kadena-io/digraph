@@ -79,7 +79,7 @@ properties_twentyChainGraph = prefixProperties "twentyChainGraph: "
     : ("size == 30", symSize g === 30)
     : ("outDegree == 3", maxOutDegree g === 3)
     : ("isRegular", property $ isRegular g)
-    : ("diameter == 2", diameter g === Just 4)
+    : ("diameter == 3", diameter g === Just 3)
     : properties_undirected g
   where
     g = twentyChainGraph

@@ -535,6 +535,11 @@ line = symmetric . diLine
 
 -- | The Peterson graph.
 --
+-- * order: 10
+-- * size: 30
+-- * degree: 3
+-- * diameter: 2
+--
 petersonGraph :: DiGraph Int
 petersonGraph = DiGraph
     [ (0, [2,3,5])
@@ -551,12 +556,16 @@ petersonGraph = DiGraph
 
 -- | The "twenty chain" graph.
 --
+-- * order: 20
+-- * size: 60
+-- * degree: 3
+-- * diameter: 3
+--
 twentyChainGraph :: DiGraph Int
-twentyChainGraph  = pentagram `union` pentagon1 `union` pentagon2 `union` connections
+twentyChainGraph = pentagram `union` decagon `union` connections
   where
     pentagram = mapVertices (+ 5) $ pentagon2pentagram $ cycle 5
-    pentagon1 = mapVertices (+ 10) $ cycle 5
-    pentagon2 = mapVertices (+ 15) $ cycle 5
+    decagon =  mapVertices (+ 10) $ cycle 10
     connections = fromEdges $ HS.fromList $ mconcat
         [ [(i, x), (x, i)]
         | i <- [0..4]
