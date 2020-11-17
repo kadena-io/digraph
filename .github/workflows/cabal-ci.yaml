@@ -13,17 +13,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ghc: ['8.6.5', '8.8.3', '8.10.1']
+        ghc: ['8.6.5', '8.8.4', '8.10.2']
         cabal: ['3.2.0.0']
-        os: ['ubuntu-16.04', 'ubuntu-18.04', 'macOS-latest']
+        os: ['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04', 'macOS-latest']
 
     steps:
 
     # Setup
     - name: Checkout repository
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
     - name: Install GHC and Cabal
-      uses: actions/setup-haskell@v1.1
+      uses: actions/setup-haskell@v1
       with:
          ghc-version: ${{ matrix.ghc }}
          cabal-version: ${{ matrix.cabal }}
@@ -37,30 +37,14 @@ jobs:
         EOF
 
     # Restore Packages from Caches
-    - uses: actions/cache@v1
+    - uses: actions/cache@v2
       name: Cache ~/.cabal/packages
       with:
-        path: ~/.cabal/packages
-        key: ${{ runner.os }}-${{ matrix.ghc }}-packages-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.ghc }}-packages-
-          ${{ runner.os }}-${{ matrix.ghc }}-packages
-    - uses: actions/cache@v1
-      name: Cache ~/.cabal/store
-      with:
-        path: ~/.cabal/store
-        key: ${{ runner.os }}-${{ matrix.ghc }}-store-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.ghc }}-store-
-          ${{ runner.os }}-${{ matrix.ghc }}-store
-    - uses: actions/cache@v1
-      name: Cache dist-newstyle
-      with:
-        path: dist-newstyle
-        key: ${{ runner.os }}-${{ matrix.ghc }}-dist-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.ghc }}-dist-
-          ${{ runner.os }}-${{ matrix.ghc }}-dist
+        path: |
+          ~/.cabal/packages
+          ~/.cabal/store
+          ./dist-newstyle
+        key: ${{ matrix.os }}-${{ matrix.ghc }}-cabal
 
     # Build
     - name: Update package database
