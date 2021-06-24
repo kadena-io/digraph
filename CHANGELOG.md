@@ -1,5 +1,9 @@
 # Revision history for digraph
 
+## 0.2.1 -- 2021-06-24
+
+* Build with GHC-9
+
 ## 0.2 -- 2020-05-19
 
 * Fix the `twentyChainGraph` to have diameter 3 and match the respective graph
