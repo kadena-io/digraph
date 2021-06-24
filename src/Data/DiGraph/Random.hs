@@ -64,7 +64,9 @@ rrgIO
     :: Natural
     -> Natural
     -> IO (Maybe (DiGraph Int))
-rrgIO n d = MWC.withSystemRandom $ \gen -> rrg @IO (`MWC.uniformR` gen) n d
+rrgIO n d = do
+    gen <- MWC.createSystemRandom
+    rrg @IO (`MWC.uniformR` gen) n d
 
 -- | Undirected, irreflexive random regular graph.
 --
