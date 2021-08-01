@@ -8,7 +8,7 @@
 
 -- |
 -- Module: Data.DiGraph.FloydWarshall
--- Copyright: Copyright © 2018 Kadena LLC.
+-- Copyright: Copyright © 2018-2021 Kadena LLC.
 -- License: MIT
 -- Maintainer: Lars Kuhtz <lars@kadena.io>
 -- Stability: experimental
@@ -156,7 +156,11 @@ toDistance x
 --
 intDistMatrix
     :: Real a
+#if MIN_VERSION_massiv(1,0,0)
+    => Source r a
+#else
     => Source r Ix2 a
+#endif
     => Array r Ix2 a
     -> Array M.D Ix2 (Double, Int)
 intDistMatrix = M.imap go
@@ -194,7 +198,11 @@ floydWarshallInternal a = foldl' go a [0..n-1]
 -- | Floyd Warshall Without Paths (more efficient, by factor of 2).
 --
 distMatrix_
+#if MIN_VERSION_massiv(1,0,0)
+    :: Source r Int
+#else
     :: Source r Ix2 Int
+#endif
     => Array r Ix2 Int
     -> Array M.D Ix2 Double
 distMatrix_ = M.imap go
