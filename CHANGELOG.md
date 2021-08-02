@@ -1,5 +1,9 @@
 # Revision history for digraph
 
+## 0.2.2 -- 2021-08-02
+
+* Support for `massiv >=1.01`
+
 ## 0.2.1 -- 2021-06-24
 
 * Build with GHC-9
