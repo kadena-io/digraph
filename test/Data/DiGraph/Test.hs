@@ -18,9 +18,6 @@ module Data.DiGraph.Test
 
 import Data.Bifunctor
 import Data.Hashable
-#if !MIN_VERSION_base(4,11,0)
-import Data.Semigroup
-#endif
 
 import Numeric.Natural
 
