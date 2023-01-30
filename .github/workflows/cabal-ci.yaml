@@ -13,17 +13,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ghc: ['8.8.4', '8.10.5', '9.0.1']
-        cabal: ['3.4']
-        os: ['ubuntu-18.04', 'ubuntu-20.04', 'macOS-latest']
+        ghc: ['8.10.7', '9.0.2', '9.2.4', '9.4.4']
+        cabal: ['3.8']
+        os: ['ubuntu-20.04', 'ubuntu-22.04', 'macOS-latest']
 
     steps:
 
     # Setup
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Install GHC and Cabal
-      uses: haskell/actions/setup@v1.2.3
+      uses: haskell/actions/setup@v2
       with:
          ghc-version: ${{ matrix.ghc }}
          cabal-version: ${{ matrix.cabal }}
@@ -37,7 +37,7 @@ jobs:
         EOF
 
     # Restore Packages from Caches
-    - uses: actions/cache@v2.1.6
+    - uses: actions/cache@v3
       name: Cache dist-newstyle
       with:
         path: |
