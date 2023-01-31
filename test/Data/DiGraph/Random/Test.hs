@@ -34,14 +34,13 @@ import Data.Hashable
 import Data.Massiv.Array (Array(..), Comp(..), Ix2(..), U, makeArray)
 import qualified Data.Massiv.Array as M
 import Data.Proxy
-#if !MIN_VERSION_base(4,11,0)
-import Data.Semigroup
-#endif
 
 import GHC.Generics
 import GHC.TypeNats
 
+#if !MIN_VERSION_base(4,16,0)
 import Numeric.Natural
+#endif
 
 import Test.QuickCheck
 

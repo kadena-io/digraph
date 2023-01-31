@@ -9,12 +9,13 @@ license: BSD-3-Clause
 license-file: LICENSE
 author: Lars Kuhtz
 maintainer: lars@kadena.io
-copyright: Copyright (c) 2019 - 2021, Kadena LLC
+copyright: Copyright (c) 2019 - 2023, Kadena LLC
 category: Data, Mathematics
 tested-with:
-    GHC==9.0.1
-    GHC==8.10.5
-    GHC==8.8.4
+    GHC==9.4.4
+    GHC==9.2.4
+    GHC==9.0.2
+    GHC==8.10.7
 extra-source-files:
     README.md
     CHANGELOG.md
@@ -33,7 +34,7 @@ library
         Data.DiGraph.FloydWarshall
         Data.DiGraph.Random
     build-depends:
-        , base >=4.10 && <4.16
+        , base >=4.11 && <5
         , containers >=0.5
         , deepseq >=1.4
         , hashable >=1.2
@@ -61,7 +62,7 @@ test-suite digraph-tests
 
         -- external
         , QuickCheck >=2.11
-        , base >=4.10 && <4.16
+        , base >=4.11 && <5
         , fgl >=5.7
         , hashable >=1.2
         , massiv >=0.3
