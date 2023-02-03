@@ -1,5 +1,16 @@
 # Revision history for digraph
 
+## 0.3.0 -- 2023-02-03
+
+* Fix `fromAdjacencySets` and to preserve edge direction. This affects
+  the functions for computing shortest paths, distance, and diameter. These
+  functions now return correct results for directed graphs. Before these
+  functions silently turned the input into an undirected graph. (Contributed by
+  [Geometer1729](https://github.com/Geometer1729))
+
+* Add `pentagon` and `ascendingCube` to the list of known graphs.
+  (Contributed by [Geometer1729](https://github.com/Geometer1729))
+
 ## 0.2.3 -- 2023-02-02
 
 * Support ghc-9.2 and ghc-9.4
