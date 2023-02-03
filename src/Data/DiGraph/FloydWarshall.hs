@@ -66,7 +66,7 @@ type AdjacencySets = HM.HashMap Int (HS.HashSet Int)
 --
 -- (uses massiv)
 
--- | Assumes that the input is an undirected graph and that the vertex
+-- | Assumes that the input is an directed graph and that the vertex
 -- set is a prefix of the natural numbers.
 --
 fromAdjacencySets :: AdjacencySets -> DenseAdjMatrix
@@ -75,7 +75,6 @@ fromAdjacencySets g = makeArray Seq (Sz (n :. n)) go
     n = HM.size g
     go (i :. j)
         | isEdge (i, j) = 1
-        | isEdge (j, i) = 1
         | otherwise = 0
     isEdge (a, b) = maybe False (HS.member b) $ HM.lookup a g
 

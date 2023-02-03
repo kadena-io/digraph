@@ -40,6 +40,9 @@ properties_undirected g =
     , ("isSymmetric", property $ isSymmetric g)
     ]
 
+properties_directed :: Eq a => Hashable a => DiGraph a -> [(String, Property)]
+properties_directed = filter ((/=) "isSymmetric" . fst) . properties_undirected
+
 properties_emptyGraph :: Natural -> [(String, Property)]
 properties_emptyGraph n = prefixProperties ("emptyGraph of order " <> show n <> ": ")
     $ ("order == " <> show n, order g === n)
@@ -92,6 +95,28 @@ properties_hoffmanSingletonGraph = prefixProperties "HoffmanSingletonGraph: "
   where
     g = hoffmanSingleton
 
+properties_pentagon :: [(String,Property)]
+properties_pentagon = prefixProperties "Pentagon: "
+    $ ("order == 5",order g === 5)
+    : ("size == 5",symSize g === 5)
+    : ("outDegree == 1",maxOutDegree g === 1)
+    : ("isRegular", property $ isRegular g)
+    : ("diameter == 4", diameter g === Just 4)
+    : properties_directed g
+  where
+    g = pentagon
+
+properties_ascendingCube :: [(String,Property)]
+properties_ascendingCube = prefixProperties "Ascending Cube: "
+    $ ("order == 8",order g === 8)
+    : ("size == 12",symSize g === 12)
+    : ("outDegree == 3",maxOutDegree g === 3)
+    : ("isIrRegular", property $ not $ isRegular g)
+    : ("diameter == Nothing", diameter g === Nothing)
+    : properties_directed g
+  where
+    g = ascendingCube
+
 -- | Test Properties.
 --
 properties :: [(String, Property)]
@@ -102,4 +127,6 @@ properties = (concat :: [[(String, Property)]] -> [(String, Property)])
     , properties_petersonGraph
     , properties_twentyChainGraph
     , properties_hoffmanSingletonGraph
+    , properties_pentagon
+    , properties_ascendingCube
     ]

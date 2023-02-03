@@ -82,6 +82,8 @@ module Data.DiGraph
 , petersonGraph
 , twentyChainGraph
 , hoffmanSingleton
+, pentagon
+, ascendingCube
 
 ) where
 
@@ -612,3 +614,16 @@ hoffmanSingleton = pentagons `union` pentagrams `union` connections
         , i <- [0 .. 4]
         , let b = q_off i ((h * i + j) `mod` 5)
         ]
+
+pentagon :: DiGraph Int
+pentagon = fromEdges $ HS.fromList [(i,(i+1) `mod` 5) | i <- [0..4] ]
+
+ascendingCube :: DiGraph (Int,Int,Int)
+ascendingCube = fromEdges $ HS.fromList $ mconcat
+  [ [ ((0,a,b),(1,a,b))
+    , ((a,0,b),(a,1,b))
+    , ((a,b,0),(a,b,1))
+    ]
+  | a <- [0,1]
+  , b <- [0,1]
+  ]
