@@ -41,7 +41,9 @@ module Data.DiGraph.FloydWarshall
 
 import Control.DeepSeq
 
+#if !MIN_VERSION_base(4,20,0)
 import Data.Foldable
+#endif
 import qualified Data.HashMap.Strict as HM
 import qualified Data.HashSet as HS
 import Data.Massiv.Array as M
