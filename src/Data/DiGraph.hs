@@ -80,6 +80,7 @@ module Data.DiGraph
 , diCycle
 , line
 , diLine
+, petersenGraph
 , petersonGraph
 , twentyChainGraph
 , hoffmanSingleton
@@ -540,15 +541,15 @@ diLine n = unsafeFromList [ (a, [ a + 1 | a /= int n - 1]) | a <- [0 .. int n - 
 line :: Natural -> DiGraph Int
 line = symmetric . diLine
 
--- | The Peterson graph.
+-- | The Petersen graph.
 --
 -- * order: 10
 -- * size: 30
 -- * degree: 3
 -- * diameter: 2
 --
-petersonGraph :: DiGraph Int
-petersonGraph = DiGraph
+petersenGraph :: DiGraph Int
+petersenGraph = DiGraph
     [ (0, [2,3,5])
     , (1, [3,4,6])
     , (2, [4,0,7])
@@ -560,6 +561,10 @@ petersonGraph = DiGraph
     , (8, [3,7,9])
     , (9, [4,8,5])
     ]
+
+petersonGraph :: DiGraph Int
+petersonGraph = petersenGraph
+{-# DEPRECATED petersonGraph "Use petersenGraph instead" #-}
 
 -- | The "twenty chain" graph.
 --

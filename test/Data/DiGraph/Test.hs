@@ -62,8 +62,8 @@ properties_singletonGraph = prefixProperties "singletonGraph: "
   where
     g = singleton
 
-properties_petersonGraph :: [(String, Property)]
-properties_petersonGraph = prefixProperties "petersonGraph: "
+properties_petersenGraph :: [(String, Property)]
+properties_petersenGraph = prefixProperties "petersenGraph: "
     $ ("order == 10", order g === 10)
     : ("size == 15", symSize g === 15)
     : ("outDegree == 3", maxOutDegree g === 3)
@@ -71,7 +71,7 @@ properties_petersonGraph = prefixProperties "petersonGraph: "
     : ("diameter == 2", diameter g === Just 2)
     : properties_undirected g
   where
-    g = petersonGraph
+    g = petersenGraph
 
 properties_twentyChainGraph :: [(String, Property)]
 properties_twentyChainGraph = prefixProperties "twentyChainGraph: "
@@ -179,7 +179,7 @@ properties = (concat :: [[(String, Property)]] -> [(String, Property)])
     [ properties_emptyGraph 0
     , properties_emptyGraph 2
     , properties_singletonGraph
-    , properties_petersonGraph
+    , properties_petersenGraph
     , properties_twentyChainGraph
     , properties_hoffmanSingletonGraph
     , properties_pentagon
