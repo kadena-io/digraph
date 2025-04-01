@@ -1,6 +1,6 @@
 cabal-version: 2.4
 name: digraph
-version: 0.3.1
+version: 0.3.2
 synopsis: Directed Graphs
 description: Directed graphs implementation that is based on unordered-containers
 homepage: https://github.com/kadena-io/digraph

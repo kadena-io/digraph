@@ -1,5 +1,11 @@
 # Revision history for digraph
 
+## 0.3.2 -- 2023-04-01
+
+* Fix spelling of Petersen graph. The old function name `petersonGraph` is
+  marked as deprecated and will be removed in the next major version. The new
+  function name is `petersenGraph`.
+
 ## 0.3.1 -- 2023-03-31
 
 * Add some degree-diameter graphs to the list of known graphs. These graphs
