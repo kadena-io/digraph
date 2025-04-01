@@ -12,11 +12,10 @@ maintainer: lars@kadena.io
 copyright: Copyright (c) 2019 - 2023, Kadena LLC
 category: Data, Mathematics
 tested-with:
-    GHC==9.6.1
-    GHC==9.4.4
-    GHC==9.2.4
-    GHC==9.0.2
-    GHC==8.10.7
+    GHC==9.12
+    GHC==9.10
+    GHC==9.8
+    GHC==9.6
 extra-source-files:
     README.md
     CHANGELOG.md
