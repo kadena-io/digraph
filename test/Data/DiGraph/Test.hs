@@ -117,6 +117,61 @@ properties_ascendingCube = prefixProperties "Ascending Cube: "
   where
     g = ascendingCube
 
+properties_d3k4 :: [(String, Property)]
+properties_d3k4 = prefixProperties "d3k4: "
+    $ ("order == 38", order g === 38)
+    : ("size == 57", symSize g === 57)
+    : ("outDegree == 3", maxOutDegree g === 3)
+    : ("isRegular", property $ isRegular g)
+    : ("diameter == 4", diameter g === Just 4)
+    : properties_undirected g
+  where
+    g = d3k4
+
+properties_d4k3 :: [(String, Property)]
+properties_d4k3 = prefixProperties "d4k3: "
+    $ ("order == 41", order g === 41)
+    : ("size == 82", symSize g === 82)
+    : ("outDegree == 4", maxOutDegree g === 4)
+    : ("isRegular", property $ isRegular g)
+    : ("diameter == 3", diameter g === Just 3)
+    : properties_undirected g
+  where
+    g = d4k3
+
+properties_d4k4 :: [(String, Property)]
+properties_d4k4 = prefixProperties "d4k4: "
+    $ ("order == 98", order g === 98)
+    : ("size == 196", symSize g === 196)
+    : ("outDegree == 4", maxOutDegree g === 4)
+    : ("isRegular", property $ isRegular g)
+    : ("diameter == 4", diameter g === Just 4)
+    : properties_undirected g
+  where
+    g = d4k4
+
+properties_d5k3 :: [(String, Property)]
+properties_d5k3 = prefixProperties "d5k3: "
+    $ ("order == 72", order g === 72)
+    : ("size == 180", symSize g === 180)
+    : ("outDegree == 5", maxOutDegree g === 5)
+    : ("isRegular", property $ isRegular g)
+    : ("diameter == 3", diameter g === Just 3)
+    : properties_undirected g
+  where
+    g = d5k3
+
+properties_d5k4 :: [(String, Property)]
+properties_d5k4 = prefixProperties "d5k4: "
+    $ ("order == 212", order g === 212)
+    : ("size == 530", symSize g === 530)
+    : ("outDegree == 5", maxOutDegree g === 5)
+    : ("isRegular", property $ isRegular g)
+    : ("diameter == 4", diameter g === Just 4)
+    : properties_undirected g
+  where
+    g = d5k4
+
 -- | Test Properties.
 --
 properties :: [(String, Property)]
@@ -129,4 +184,9 @@ properties = (concat :: [[(String, Property)]] -> [(String, Property)])
     , properties_hoffmanSingletonGraph
     , properties_pentagon
     , properties_ascendingCube
+    , properties_d3k4
+    , properties_d4k3
+    , properties_d4k4
+    , properties_d5k3
+    , properties_d5k4
     ]
