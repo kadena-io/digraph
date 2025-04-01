@@ -1,12 +1,2 @@
 packages: digraph.cabal
 
-source-repository-package
-  type: git
-  tag: 0c815bf9043d0f0cbda92b80ef791892e2b7fb43
-  location: https://github.com/haskell-streaming/streaming
-
-source-repository-package
-  type: git
-  tag: e314834e09953cf83ac90efbab08a1edc94500fe
-  location: https://github.com/lehins/massiv
-  subdir: massiv
