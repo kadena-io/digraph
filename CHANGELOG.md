@@ -1,11 +1,18 @@
 # Revision history for digraph
 
+## 0.3.1 -- 2023-03-31
+
+* Add some degree-diameter graphs to the list of known graphs. These graphs
+  represent the best currently known solutions for the respective degree and
+  diameter. In concrete the graphs `d3k4`, `d4k3`, `d4k4`, `d5k3`, and `d5k4`
+  have been added.
+
 ## 0.3.0 -- 2023-02-03
 
-* Fix `fromAdjacencySets` and to preserve edge direction. This affects
-  the functions for computing shortest paths, distance, and diameter. These
-  functions now return correct results for directed graphs. Before these
-  functions silently turned the input into an undirected graph. (Contributed by
+* Fix `fromAdjacencySets` to preserve edge direction. This affects the functions
+  for computing shortest paths, distance, and diameter. These functions now
+  return correct results for directed graphs. Before these functions silently
+  turned the input into an undirected graph. (Contributed by
   [Geometer1729](https://github.com/Geometer1729))
 
 * Add `pentagon` and `ascendingCube` to the list of known graphs.

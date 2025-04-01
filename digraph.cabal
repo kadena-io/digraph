@@ -1,6 +1,6 @@
 cabal-version: 2.4
 name: digraph
-version: 0.3.0
+version: 0.3.1
 synopsis: Directed Graphs
 description: Directed graphs implementation that is based on unordered-containers
 homepage: https://github.com/kadena-io/digraph
@@ -9,7 +9,7 @@ license: BSD-3-Clause
 license-file: LICENSE
 author: Lars Kuhtz
 maintainer: lars@kadena.io
-copyright: Copyright (c) 2019 - 2023, Kadena LLC
+copyright: Copyright (c) 2019 - 2025, Kadena LLC
 category: Data, Mathematics
 tested-with:
     GHC==9.12
